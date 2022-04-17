@@ -7,9 +7,24 @@ from .import HodViews, StaffViews, StudentViews
 urlpatterns = [
     path('', views.loginPage, name="login"),
     # path('accounts/', include('django.contrib.auth.urls')),
+
+    path('change_password/',views.change_password, name='change_password'),
+    path('check_email/', views.go_here, name ="go_here"),
+    path('checked_email/', views.reset_password , name="reset_password"),
     path('doLogin/', views.doLogin, name="doLogin"),
+    path('send_otp/' , views.sending_email , name="sending_email"),
+    path('successful/', views.verify_otp , name="verify_otp"),
     path('get_user_details/', views.get_user_details, name="get_user_details"),
     path('logout_user/', views.logout_user, name="logout_user"),
+
+
+    # path('change_password/',views.change_password, name='change_password'),
+    # path('check_email/', views.go_here, name ="go_here"),
+    # path('checked_email/', views.reset_password , name="reset_password"),
+    # path('doLogin/', views.doLogin, name="doLogin"),
+    # path('get_user_details/', views.get_user_details, name="get_user_details"),
+    # path('logout_user/', views.logout_user, name="logout_user"),
+   
     path('admin_home/', HodViews.admin_home, name="admin_home"),
     path('add_staff/', HodViews.add_staff, name="add_staff"),
     path('add_staff_save/', HodViews.add_staff_save, name="add_staff_save"),
