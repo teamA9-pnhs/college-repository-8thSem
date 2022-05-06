@@ -1,4 +1,5 @@
-
+from django.conf import settings
+from django.conf.urls.static import static
 from django.urls import path, include
 from . import views
 from .import HodViews, StaffViews, StudentViews
@@ -32,12 +33,19 @@ urlpatterns = [
     path('edit_staff/<staff_id>/', HodViews.edit_staff, name="edit_staff"),
     path('edit_staff_save/', HodViews.edit_staff_save, name="edit_staff_save"),
     path('delete_staff/<staff_id>/', HodViews.delete_staff, name="delete_staff"),
+    path('add_semester/', HodViews.add_semester, name="add_semester"),
+    path('add_semester_save/', HodViews.add_semester_save, name="add_semester_save"),
     path('add_course/', HodViews.add_course, name="add_course"),
     path('add_course_save/', HodViews.add_course_save, name="add_course_save"),
     path('manage_course/', HodViews.manage_course, name="manage_course"),
+    path('manage_semester/', HodViews.manage_semester, name="manage_semester"),
+    path('manage_semesterId/', HodViews.manage_semesterId, name="manage_semesterId"),
     path('edit_course/<course_id>/', HodViews.edit_course, name="edit_course"),
+    path('edit_semester/<semester_id>/', HodViews.edit_semester, name="edit_semester"),
     path('edit_course_save/', HodViews.edit_course_save, name="edit_course_save"),
+    path('edit_semester_save/', HodViews.edit_semester_save, name="edit_semester_save"),
     path('delete_course/<course_id>/', HodViews.delete_course, name="delete_course"),
+    path('delete_semester/<semester_id>/', HodViews.delete_semester, name="delete_semester"),
     path('manage_session/', HodViews.manage_session, name="manage_session"),
     path('add_session/', HodViews.add_session, name="add_session"),
     path('add_session_save/', HodViews.add_session_save, name="add_session_save"),
@@ -105,4 +113,4 @@ urlpatterns = [
     path('student_profile/', StudentViews.student_profile, name="student_profile"),
     path('student_profile_update/', StudentViews.student_profile_update, name="student_profile_update"),
     path('student_view_result/', StudentViews.student_view_result, name="student_view_result"),
-]
+] 
