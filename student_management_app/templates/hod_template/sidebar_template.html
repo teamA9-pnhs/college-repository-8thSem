@@ -3,9 +3,10 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Brand Logo -->
       <a href="{% url 'admin_home' %}" class="brand-link">
-        <img src="{% static 'dist/img/AdminLTELogo.png' %}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+        
+        <img src="{% static 'dist/img/logo.png' %}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
             style="opacity: .8">
-        <span class="brand-text font-weight-light">Open University</span>
+        <span class="brand-text font-weight-light">SDMCET Portal</span>
       </a>
 
       <!-- Sidebar -->
@@ -98,6 +99,31 @@
                 </p>
               </a>
             </li>
+
+
+
+            <li class="nav-item">
+              {% url 'manage_semester' as manage_semester %}
+              {% url 'edit_semester' semester_id=id as edit_semester %}
+              <a href="{{ manage_semester }}" class="nav-link {% if request.path == manage_semester %} active {% endif %} {% if request.path == edit_course %} active {% endif %}">
+                <i class="nav-icon fas fa-chalkboard"></i>
+                <p>
+                  Manage Semester
+                </p>
+              </a>
+            </li>
+
+
+<!--             
+            <li class="nav-item">
+              {% url 'add_semester' as add_semester %}
+                <a href="{{ add_semester }}" class="nav-link {% if request.path == add_semester %} active {% endif %}">
+                  <i class="nav-icon fas fa-th"></i>
+                  <p>
+                    Add Semester
+                  </p>
+                </a>
+              </li> -->
 
             <li class="nav-item">
               {% url 'manage_subject' as manage_subject %}
