@@ -1,6 +1,6 @@
 from django import forms 
 from django.forms import Form
-from student_management_app.models import Courses, SessionYearModel
+from student_management_app.models import Courses, Semester, SessionYearModel
 
 
 class DateInput(forms.DateInput):
@@ -25,6 +25,17 @@ class AddStudentForm(forms.Form):
     except:
         course_list = []
     
+
+    try:
+        semesters = Semester.objects.all()
+        semester_list = []
+        for semester in semesters:
+            single_semester = (semester.id, semester.semester_name)
+            semester_list.append(single_semester)
+    except:
+        semester_list = []
+
+
     #For Displaying Session Years
     try:
         session_years = SessionYearModel.objects.all()
@@ -40,7 +51,7 @@ class AddStudentForm(forms.Form):
         ('Male','Male'),
         ('Female','Female')
     )
-    
+    semester_id = forms.ChoiceField(label="Semester", choices=semester_list, widget=forms.Select(attrs={"class":"form-control"})) 
     course_id = forms.ChoiceField(label="Course", choices=course_list, widget=forms.Select(attrs={"class":"form-control"}))
     gender = forms.ChoiceField(label="Gender", choices=gender_list, widget=forms.Select(attrs={"class":"form-control"}))
     session_year_id = forms.ChoiceField(label="Session Year", choices=session_year_list, widget=forms.Select(attrs={"class":"form-control"}))
@@ -67,6 +78,15 @@ class EditStudentForm(forms.Form):
     except:
         course_list = []
 
+    try:
+        semesters = Semester.objects.all()
+        semester_list = []
+        for semester in semesters:
+            single_semester = (semester.id, semester.semester_name)
+            semester_list.append(single_semester)
+    except:
+        semester_list = []
+
     #For Displaying Session Years
     try:
         session_years = SessionYearModel.objects.all()
@@ -83,7 +103,7 @@ class EditStudentForm(forms.Form):
         ('Male','Male'),
         ('Female','Female')
     )
-    
+    semester_id = forms.ChoiceField(label="Semester", choices=semester_list, widget=forms.Select(attrs={"class":"form-control"})) 
     course_id = forms.ChoiceField(label="Course", choices=course_list, widget=forms.Select(attrs={"class":"form-control"}))
     gender = forms.ChoiceField(label="Gender", choices=gender_list, widget=forms.Select(attrs={"class":"form-control"}))
     session_year_id = forms.ChoiceField(label="Session Year", choices=session_year_list, widget=forms.Select(attrs={"class":"form-control"}))
