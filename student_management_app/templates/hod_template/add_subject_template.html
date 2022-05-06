@@ -57,6 +57,15 @@
                             </div>
 
                             <div class="form-group">
+                                <label>Semester</label>
+                                <select class="form-control " name="semester_id" id="semester_id">
+                                    {% for semester in semesters %}
+                                        <option value="{{ semester.id }}">{{ semester.semester_name }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+
+                            <div class="form-group">
                                 <label>Course </label>
                                 <select class="form-control" name="course">
                                     {% for course in courses %}
