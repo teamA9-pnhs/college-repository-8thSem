@@ -32,9 +32,6 @@ Feel free to make changes based on your requirements.
 5. Send Feedback to HOD
 
 
-## Support Developer
-1. Subscribe & Share my YouTube Channel - https://bit.ly/vijay-thapa-online-courses
-2. Add a Star 🌟  to this 👆 Repository
 
 
 
@@ -88,7 +85,7 @@ $  source venv/bin/activate
 
 **3. Clone this project**
 ```
-$  git clone https://github.com/vijaythapa333/django-student-management-system.git
+$  git clone https://github.com/teamA9-pnhs/college-repository-8thSem.git
 ```
 
 Then, Enter the project
